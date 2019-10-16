@@ -4,9 +4,9 @@
 
 export const creation = () => ({
   // Create a RegExp using a constructor:
-  constructor: null,
+  constructor: new RegExp(''),
   // Create a RegExp using literal notation:
-  literalNotation: null,
+  literalNotation: /./,
 })
 
 // ----------------------------------------------------------------------------
@@ -16,9 +16,9 @@ export const firstCharacterAndWord = () => {
 
   const re = {
     // Create a RegExp that matches the first character of subject:
-    character: /<insert-here>/,
+    character: /\w/,
     // Create a RegExp that matches the first word of subject:
-    word: /<insert-here>/,
+    word: /\w+/,
   }
 
   return {
@@ -34,7 +34,7 @@ export const firstDigits = () => {
 
   const re = {
     // Create a RegExp that matches the first digits of subject:
-    digits: /<insert-here>/,
+    digits: /\d+/,
   }
 
   return {
@@ -49,9 +49,9 @@ export const startsAndEndsWith = () => {
 
   const re = {
     // Create a RegExp that matches starting word of subject:
-    startsWith: /<insert-here>/,
+    startsWith: /^\w+/,
     // Create a RegExp that matches ending word of subject:
-    endsWith: /<insert-here>/,
+    endsWith: /\w+$/,
   }
 
   return {
@@ -67,7 +67,7 @@ export const zeroOrMoreToken = () => {
 
   const re = {
     // Create a RegExp that matches `foo` and `foo123` of subject:
-    wordWithOptionalDigits: /<insert-here>/,
+    wordWithOptionalDigits: /foo\d*/g,
   }
 
   return {
@@ -82,7 +82,7 @@ export const globalFlag = () => {
 
   const re = {
     // Create a RegExp that matches all words of subject with the global flag.
-    words: /<insert-here>/,
+    words: /\w+/g,
   }
 
   return {
@@ -97,7 +97,7 @@ export const inverseToken = () => {
 
   const re = {
     // Create a RegExp that matches all except digits of subject:
-    inverse: /<insert-here>/,
+    inverse: /\D+/g,
   }
 
   return {
@@ -114,7 +114,7 @@ export const tabsToSpaces = () => {
 
   const re = {
     // Create a RegExp that matches tabs in subject:
-    tabs: /<insert-here>/,
+    tabs: /\t+/g,
   }
 
   return {
@@ -131,7 +131,7 @@ export const trimEndingWhitespace = () => {
 
   const re = {
     // Create a RegExp that matches the trailing whitespace of lines in subject:
-    endingWhitespace: /<insert-here>/,
+    endingWhitespace: /\s+$/gm,
   }
 
   return {
@@ -147,7 +147,7 @@ export const groupToken = () => {
   const re = {
     // Create a RegExp that matches the above individual arguments in `fn` with
     // groups.
-    argumentGroups: /<insert-here>/,
+    argumentGroups: /fn\((\w+), (\w+), (\w+)\)/,
   }
 
   return {
@@ -162,12 +162,12 @@ export const eitherToken = () => {
 
   const re = {
     // Create a RegExp that matches either `foo` or `bar` of subject:
-    simple: /<insert-here>/,
+    simple: /foo|bar/g,
     // Create a RegExp that matches either `fooar` or `fobar` of subject with a
     // group:
-    group: /<insert-here>/,
+    group: /fo(o|b)ar/g,
     // Create a RegExp  that matches only real words `foo` and `bar` in subject:
-    boundary: /<insert-here>/,
+    boundary: /\b(foo|bar)\b/g,
   }
 
   return {
@@ -184,10 +184,10 @@ export const anythingGreedyLazy = () => {
 
   const re = {
     // Create a RegExp that matches anything one or more times in subject:
-    greedy: /<insert-here>/,
+    greedy: /.+/,
     // Create a RegExp that matches anything one or more times except all after
     // `|` in subject:
-    lazy: /<insert-here>/,
+    lazy: /.+?\|/,
   }
 
   return {
@@ -203,7 +203,7 @@ export const validEmail = () => {
 
   const re = {
     // Create a RegExp that matches the above email in subject:
-    validMail: /<insert-here>/,
+    validMail: /\S+@\S+\.\S+/,
   }
 
   return {
@@ -219,7 +219,7 @@ export const validHex = () => {
   const re = {
     // Create a RegExp that matches the valid hex values in subject (disregard
     // whitespace in matches):
-    hex: /<insert-here>/,
+    hex: /(^| )(#|0x)?([a-f\d]{3}){1,2}($| )/gi,
   }
 
   return {
