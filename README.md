@@ -50,8 +50,6 @@ Methods in JavaScript that utilize RegExp:
 
 ## Common pitfalls
 
-How does a Person go to the room?
-
 These are some common pitfalls when using RegExp with JavaScript:
 
 - Exec is faster than match when using a RegExp without the global flag.
